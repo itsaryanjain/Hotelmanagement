@@ -1,0 +1,227 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 2064384 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3617), pid=14240, tid=8700
+#
+# JRE version:  (17.0.8+7) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.8+7, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF-8 --module-path=C:\Users\Aryan jain\Desktop\hotel management\projecthotel\bin -XX:+ShowCodeDetailsInExceptionMessages -Djdk.module.main=projecthotel projecthotel/projecthotel.Adddrivers
+
+Host: Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz, 8 cores, 7G,  Windows 11 , 64 bit Build 22621 (10.0.22621.3235)
+Time: Tue Mar 26 12:15:56 2024 India Standard Time elapsed time: 0.016398 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001d7daa18c40):  JavaThread "Unknown thread" [_thread_in_vm, id=8700, stack(0x0000008fbce00000,0x0000008fbcf00000)]
+
+Stack: [0x0000008fbce00000,0x0000008fbcf00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x678b0a]
+V  [jvm.dll+0x835e84]
+V  [jvm.dll+0x83762e]
+V  [jvm.dll+0x837c93]
+V  [jvm.dll+0x24746f]
+V  [jvm.dll+0x675859]
+V  [jvm.dll+0x66a0ea]
+V  [jvm.dll+0x306c7b]
+V  [jvm.dll+0x30e166]
+V  [jvm.dll+0x35dd53]
+V  [jvm.dll+0x35df6f]
+V  [jvm.dll+0x2ddb48]
+V  [jvm.dll+0x2deab4]
+V  [jvm.dll+0x807f31]
+V  [jvm.dll+0x36bb21]
+V  [jvm.dll+0x7e733c]
+V  [jvm.dll+0x3ee4af]
+V  [jvm.dll+0x3f00c1]
+C  [jli.dll+0x528b]
+C  [ucrtbase.dll+0x29363]
+C  [KERNEL32.DLL+0x1257d]
+C  [ntdll.dll+0x5aa58]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffb8496a018, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001d7daa742e0 GCTaskThread "GC Thread#0" [stack: 0x0000008fbcf00000,0x0000008fbd000000] [id=11420]
+  0x000001d7daa85460 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000008fbd000000,0x0000008fbd100000] [id=2488]
+  0x000001d7daa85e70 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000008fbd100000,0x0000008fbd200000] [id=2912]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffb8413e587]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001d7daa150a0] Heap_lock - owner thread: 0x000001d7daa18c40
+
+Heap address: 0x0000000082c00000, size: 2004 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000082c00000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffb84522699]
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.011 Loaded shared library C:\Users\Aryan jain\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff67f310000 - 0x00007ff67f31e000 	C:\Users\Aryan jain\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin\javaw.exe
+0x00007ffc16350000 - 0x00007ffc16566000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffc15270000 - 0x00007ffc15334000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffc136c0000 - 0x00007ffc13a66000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffc13cf0000 - 0x00007ffc13e01000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffbda310000 - 0x00007ffbda327000 	C:\Users\Aryan jain\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin\jli.dll
+0x00007ffc16110000 - 0x00007ffc162bd000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffc13e10000 - 0x00007ffc13e36000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffc15da0000 - 0x00007ffc15dc9000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffc13f00000 - 0x00007ffc14018000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffc13ae0000 - 0x00007ffc13b7a000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffbe5790000 - 0x00007ffbe57a9000 	C:\Users\Aryan jain\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin\VCRUNTIME140.dll
+0x00007ffbfda70000 - 0x00007ffbfdd03000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3235_none_270f74e173860f98\COMCTL32.dll
+0x00007ffc15f50000 - 0x00007ffc15ff7000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffc15340000 - 0x00007ffc15371000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffbfd8d0000 - 0x00007ffbfd8dc000 	C:\Users\Aryan jain\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin\vcruntime140_1.dll
+0x00007ffbd7570000 - 0x00007ffbd7601000 	C:\Users\Aryan jain\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin\msvcp140.dll
+0x00007ffb83e50000 - 0x00007ffb84a9c000 	C:\Users\Aryan jain\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin\server\jvm.dll
+0x00007ffc14620000 - 0x00007ffc146d2000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffc14800000 - 0x00007ffc148a8000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffc13690000 - 0x00007ffc136b8000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ffc14a50000 - 0x00007ffc14b65000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffc0c010000 - 0x00007ffc0c044000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffc13560000 - 0x00007ffc135ad000 	C:\WINDOWS\SYSTEM32\POWRPROF.dll
+0x00007ffbfc210000 - 0x00007ffbfc219000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffc09b00000 - 0x00007ffc09b0a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffc146f0000 - 0x00007ffc14761000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffc13540000 - 0x00007ffc13553000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007ffc126d0000 - 0x00007ffc126e8000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffc0c0d0000 - 0x00007ffc0c0da000 	C:\Users\Aryan jain\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin\jimage.dll
+0x00007ffc10fb0000 - 0x00007ffc111e3000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffc14190000 - 0x00007ffc14518000 	C:\WINDOWS\System32\combase.dll
+0x00007ffc15e70000 - 0x00007ffc15f47000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffbf57b0000 - 0x00007ffbf57e2000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffc14020000 - 0x00007ffc1409a000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffbfcf20000 - 0x00007ffbfcf45000 	C:\Users\Aryan jain\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\Aryan jain\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3235_none_270f74e173860f98;C:\Users\Aryan jain\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin\server
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 --module-path=C:\Users\Aryan jain\Desktop\hotel management\projecthotel\bin -XX:+ShowCodeDetailsInExceptionMessages -Djdk.module.main=projecthotel 
+java_command: projecthotel/projecthotel.Adddrivers
+java_class_path (initial): C:\Users\Aryan jain\Downloads\sql-course-materials.zip;C:\Users\Aryan jain\Downloads\mysql-connector-j-8.2.0\mysql-connector-j-8.2.0.jar;C:\Users\Aryan jain\Downloads\mysql-connector-java-8.0.28 (1).jar;C:\Users\Aryan jain\Downloads\rs2xml.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 132120576                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2101346304                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool ShowCodeDetailsInExceptionMessages       = true                                   {manageable} {command line}
+   size_t SoftMaxHeapSize                          = 2101346304                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Users\Aryan jain\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.8.7-hotspot\
+PATH=C:/Users/Aryan jain/AppData/Local/Programs/Eclipse Adoptium/jdk-17.0.8.7-hotspot/bin/server;C:/Users/Aryan jain/AppData/Local/Programs/Eclipse Adoptium/jdk-17.0.8.7-hotspot/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk-20\bin;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Program Files\Java\jdk-20\bin;C:\Users\Aryan jain\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-21\bin;;C:\WINDOWS\System32;
+USERNAME=Aryan jain
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
+TMP=C:\Users\ARYANJ~1\AppData\Local\Temp
+TEMP=C:\Users\ARYANJ~1\AppData\Local\Temp
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.3235)
+OS uptime: 8 days 23:47 hours
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 12 microcode 0xec, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt
+Processor Information for all 8 processors :
+  Max Mhz: 2112, Current Mhz: 1609, Mhz Limit: 1605
+
+Memory: 4k page, system-wide physical 8014M (552M free)
+TotalPageFile size 18852M (AvailPageFile size 5M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 186M, peak: 188M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.8+7) for windows-amd64 JRE (17.0.8+7), built on Jul 18 2023 21:02:32 by "admin" with MS VC++ 16.7 (VS2019)
+
+END.
