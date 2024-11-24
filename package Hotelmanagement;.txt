@@ -1,0 +1,102 @@
+package Hotelmanagement;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class Login extends JFrame implements ActionListener {
+    JTextField username;
+    JPasswordField password;
+    JButton login, cancel;
+
+    public Login() {
+        setLayout(null);
+        setLocation(600, 100);
+        setBackground(Color.WHITE);
+
+        JLabel head = new JLabel("USERNAME");
+        head.setBounds(40, 50, 100, 30);
+        add(head);
+
+        JLabel pass = new JLabel("PASSWORD");
+        pass.setBounds(40, 100, 100, 30);
+        add(pass);
+
+        username = new JTextField();
+        username.setBounds(150, 50, 150, 30);
+        add(username);
+
+        password = new JPasswordField();
+        password.setBounds(150, 100, 150, 30);
+        add(password);
+
+        login = new JButton("LOGIN");
+        login.setBounds(40, 150, 120, 30);
+        login.setBackground(Color.BLACK);
+        login.setForeground(Color.WHITE);
+        login.addActionListener(this);
+        add(login);
+
+        cancel = new JButton("CANCEL");
+        cancel.setBounds(180, 150, 120, 30);
+        cancel.setBackground(Color.BLACK);
+        cancel.setForeground(Color.WHITE);
+        add(cancel);
+
+        ImageIcon a2 = new ImageIcon("icons/second.jpg");
+        JLabel image = new JLabel(a2);
+        image.setBounds(350, 40, 220, 200);
+        add(image);
+
+        setSize(600, 300);
+        setLocation(600, 350);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent ac) {
+        if (ac.getSource() == login) {
+            String user = username.getText();
+            String pass = new String(password.getPassword());
+
+            try {
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelmanagement", "admin", "12345");
+                String query = "SELECT * FROM login WHERE username = ? AND password = ?";
+                PreparedStatement ps = conn.prepareStatement(query);
+                ps.setString(1, user);
+                ps.setString(2, pass);
+                ResultSet rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Login successful");
+                    new Board();
+                   // setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid username and password");
+                }
+
+                rs.close();
+                ps.close();
+                conn.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+            }
+        } else if (ac.getSource() == cancel) {
+            setVisible(false);
+        }
+    }
+
+    public static void main(String[] args) {
+        new Login();
+    }
+}
